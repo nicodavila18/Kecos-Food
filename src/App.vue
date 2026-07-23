@@ -417,7 +417,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const categorias = ['Hamburguesas', 'Pizzas', 'Lomos', 'Panchos', 'Papas', 'Promos'] 
+const categorias = ['Hamburguesas', 'Pizzas', 'Lomos', 'Panchos', 'Papas', 'Bebidas'] 
 // Cambiá esta variable si querés que la página arranque en otra pestaña
 const activeTab = ref('Hamburguesas')
 
