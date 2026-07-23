@@ -132,6 +132,50 @@
                     </div>
                 </div>
             </div>
+
+            <!-- CAJA DESTACADA: BiG BURGER -->
+            <h2 class="text-2xl font-black text-orange-500 mt-12 mb-6 tracking-widest uppercase drop-shadow-md text-center">
+                BiG Burger
+            </h2>
+            
+            <div class="relative bg-gradient-to-br from-zinc-900 to-zinc-950 p-1 rounded-3xl mb-12 shadow-[0_0_20px_rgba(249,115,22,0.15)] mx-auto w-full">
+                <!-- Borde iluminado -->
+                <div class="absolute inset-0 rounded-3xl border-2 border-orange-500/40 pointer-events-none"></div>
+                <!-- Etiqueta superior centrada -->
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-500 text-zinc-950 font-black px-4 py-1 rounded-full text-xs uppercase tracking-widest shadow-lg z-20">
+                    Combos
+                </div>
+                
+                <div class="bg-zinc-900/80 rounded-[22px] p-5 pt-8 backdrop-blur-sm flex flex-col gap-4 relative z-10">
+                    <div v-for="combo in bigBurger" :key="combo.id" class="flex flex-row justify-between items-center border-b border-zinc-800/60 pb-4 last:border-0 last:pb-0 gap-4">
+                        <span class="text-[14px] font-bold text-zinc-50 uppercase tracking-wide text-left leading-tight">
+                            {{ combo.name }}
+                        </span>
+                        <span class="text-xl font-black text-orange-400 whitespace-nowrap text-right">
+                            {{ formatPrice(combo.price) }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETAS GIGANTES: EDICIONES ESPECIALES -->
+            <h2 class="text-2xl font-black text-orange-500 mt-8 mb-6 tracking-widest uppercase drop-shadow-md text-center">
+                Ediciones Especiales
+            </h2>
+            
+            <div class="flex flex-col gap-8 mb-10 w-full">
+                <div v-for="promo in especiales" :key="promo.id" class="relative w-full min-h-[450px] flex flex-col justify-end rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-zinc-900 mx-auto">
+                    <img :src="promo.image" :alt="promo.name" class="absolute inset-0 w-full h-full object-cover opacity-90" />
+                    <div class="relative z-10 w-full bg-gradient-to-t from-zinc-950 via-zinc-950/90 to-transparent p-6 pt-24 flex justify-between items-end">
+                        <h3 class="text-2xl font-black text-zinc-50 uppercase tracking-widest drop-shadow-lg">
+                            {{ promo.name }}
+                        </h3>
+                        <span class="text-xl font-black text-orange-400 bg-orange-950/90 px-3 py-1 rounded-xl border border-orange-500/50 backdrop-blur-md shadow-lg">
+                            {{ formatPrice(promo.price) }}
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- ============================== -->
@@ -317,59 +361,26 @@
         </div>
 
         <!-- ============================== -->
-        <!--         SECCIÓN PROMOS         -->
+        <!--         SECCIÓN BEBIDAS        -->
         <!-- ============================== -->
-        <div v-show="activeTab === 'Promos'" class="animate-fade-in w-full">
+        <div v-show="activeTab === 'Bebidas'" class="animate-fade-in w-full">
             
-            <!-- CAJA DESTACADA: BiG BURGER -->
-            <h2 class="text-2xl font-black text-orange-500 mt-6 mb-6 tracking-widest uppercase drop-shadow-md text-center">
-                BiG Burger
-            </h2>
+            <h2 class="text-2xl font-black text-orange-500 mt-6 mb-6 tracking-widest uppercase drop-shadow-md">Bebidas</h2>
             
-            <div class="relative bg-gradient-to-br from-zinc-900 to-zinc-950 p-1 rounded-3xl mb-12 shadow-[0_0_20px_rgba(249,115,22,0.15)] mx-auto w-full">
-                <!-- Borde iluminado -->
-                <div class="absolute inset-0 rounded-3xl border-2 border-orange-500/40 pointer-events-none"></div>
-                <!-- Etiqueta superior centrada -->
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-500 text-zinc-950 font-black px-4 py-1 rounded-full text-xs uppercase tracking-widest shadow-lg z-20">
-                    Combos
-                </div>
-                
-                <div class="bg-zinc-900/80 rounded-[22px] p-5 pt-8 backdrop-blur-sm flex flex-col gap-4 relative z-10">
-                    <div v-for="combo in bigBurger" :key="combo.id" class="flex flex-row justify-between items-center border-b border-zinc-800/60 pb-4 last:border-0 last:pb-0 gap-4">
-                        <span class="text-[14px] font-bold text-zinc-50 uppercase tracking-wide text-left leading-tight">
-                            {{ combo.name }}
-                        </span>
-                        <span class="text-xl font-black text-orange-400 whitespace-nowrap text-right">
-                            {{ formatPrice(combo.price) }}
-                        </span>
+            <div class="flex flex-col mb-10">
+                <div v-for="bebida in bebidas" :key="bebida.id" class="relative flex justify-between items-center py-5 border-b border-zinc-800/60 active:bg-white/[0.02] transition-colors">
+                    
+                    <div class="text-left flex-1 pr-4">
+                        <span class="text-xl font-bold text-zinc-50 block uppercase tracking-wide">{{ bebida.name }}</span>
                     </div>
+                    
+                    <div class="flex items-center">
+                        <span class="text-xl font-black text-orange-400">{{ formatPrice(bebida.price) }}</span>
+                    </div>
+
                 </div>
             </div>
-
-            <!-- TARJETAS GIGANTES: EDICIONES ESPECIALES -->
-            <h2 class="text-2xl font-black text-orange-500 mt-8 mb-6 tracking-widest uppercase drop-shadow-md text-center">
-                Ediciones Especiales
-            </h2>
             
-            <div class="flex flex-col gap-8 mb-10 w-full">
-                <!-- Agregamos min-h-[450px] para que la tarjeta mantenga su forma aunque falle la imagen -->
-                <div v-for="promo in especiales" :key="promo.id" class="relative w-full min-h-[450px] flex flex-col justify-end rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-zinc-900 mx-auto">
-                    
-                    <!-- La imagen del póster ocupando todo el fondo -->
-                    <img :src="promo.image" :alt="promo.name" class="absolute inset-0 w-full h-full object-cover opacity-90" />
-                    
-                    <!-- Gradiente inferior oscuro -->
-                    <div class="relative z-10 w-full bg-gradient-to-t from-zinc-950 via-zinc-950/90 to-transparent p-6 pt-24 flex justify-between items-end">
-                        <h3 class="text-2xl font-black text-zinc-50 uppercase tracking-widest drop-shadow-lg">
-                            {{ promo.name }}
-                        </h3>
-                        <span class="text-xl font-black text-orange-400 bg-orange-950/90 px-3 py-1 rounded-xl border border-orange-500/50 backdrop-blur-md shadow-lg">
-                            {{ formatPrice(promo.price) }}
-                        </span>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
     </main>
@@ -514,6 +525,15 @@ const especiales = ref([
     { id: 2, name: "El Chapo", price: 14000, image: "/promo2.jpeg" },
     { id: 3, name: "Don Ramón", price: 12000, image: "/promo3.jpeg" },
     { id: 4, name: "La Argenta", price: 8000, image: "/promo4.jpeg" },
+])
+
+// Nuevos Datos: Bebidas
+const bebidas = ref([
+    { id: 1, name: "Pepsi / 7Up 1.5 Lts", price: 3000 },
+    { id: 2, name: "Pepsi / 7Up 500 ml", price: 1500 },
+    { id: 3, name: "Cerveza Andes Lata", price: 2000 },
+    { id: 4, name: "Agua Saborizada 1.5 Lts", price: 2500 },
+    { id: 5, name: "Agua Mineral 500 ml", price: 1000 }
 ])
 </script>
 
