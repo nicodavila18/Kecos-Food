@@ -380,6 +380,12 @@
 
                 </div>
             </div>
+
+            <!-- Imagen de Muestra Bebidas -->
+            <div class="w-full h-40 bg-zinc-900 rounded-2xl flex items-center justify-center overflow-hidden relative shadow-lg border border-white/5 mb-10">
+                <img src="/foto-bebidas.jpg" alt="Bebidas KECOs" class="absolute inset-0 w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/40 via-transparent to-transparent z-10 pointer-events-none"></div>
+            </div>
             
         </div>
 
@@ -528,12 +534,18 @@ const especiales = ref([
 ])
 
 // Nuevos Datos: Bebidas
+// Nuevos Datos: Bebidas
 const bebidas = ref([
-    { id: 1, name: "Pepsi / 7Up 1.5 Lts", price: 3000 },
-    { id: 2, name: "Pepsi / 7Up 500 ml", price: 1500 },
-    { id: 3, name: "Cerveza Andes Lata", price: 2000 },
-    { id: 4, name: "Agua Saborizada 1.5 Lts", price: 2500 },
-    { id: 5, name: "Agua Mineral 500 ml", price: 1000 }
+    { id: 1, name: "Gaseosa 500 ml", price: 1500 },
+    { id: 2, name: "Jugo Cepita 1.5 Lts", price: 4500 },
+    { id: 3, name: "Jugo Aquarius 2.5 Lts", price: 4500 },
+    { id: 4, name: "Jugo Levite 2.5 Lts", price: 4000 },
+    { id: 5, name: "Seven 2.25 Lts", price: 3500 },
+    { id: 6, name: "Pepsi 2.25 Lts", price: 3500 },
+    { id: 7, name: "Coca-Cola 2.5 Lts", price: 6000 },
+    { id: 8, name: "Fanta 2.5 Lts", price: 6000 },
+    { id: 9, name: "Sprite 2.5 Lts", price: 6000 },
+    { id: 10, name: "Cerveza 710 ml", price: 4500 }
 ])
 </script>
 
