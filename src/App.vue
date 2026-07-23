@@ -86,6 +86,17 @@
                     <span class="text-xl font-black text-orange-400">{{ formatPrice(item.price) }}</span>
                 </div>
             </div>
+            
+            <!-- Imagen de Muestra -->
+            <div class="w-full max-w-md px-4 mb-4 relative z-10">
+                <div class="w-full h-40 bg-zinc-900 rounded-2xl flex items-center justify-center overflow-hidden relative shadow-lg border border-white/5">
+                    <!-- Imagen sin opacidad, colores al 100% -->
+                    <img src="/banner-burger2.png" alt="Hamburguesa KECOs" class="absolute inset-0 w-full h-full object-cover" />
+                    
+                    <!-- Degradado súper sutil solo para darle profundidad -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/40 via-transparent to-transparent z-10 pointer-events-none"></div>
+                </div>
+            </div>
 
             <div class="mt-8 mb-8">
                 <h3 class="text-lg font-black text-orange-500 mb-4 tracking-widest uppercase drop-shadow-md">Agregados</h3>
@@ -119,17 +130,6 @@
                             </span>
                         </div>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Imagen de Muestra -->
-            <div class="w-full max-w-md px-4 mb-4 relative z-10">
-                <div class="w-full h-40 bg-zinc-900 rounded-2xl flex items-center justify-center overflow-hidden relative shadow-lg border border-white/5">
-                    <!-- Imagen sin opacidad, colores al 100% -->
-                    <img src="/banner-burger2.png" alt="Hamburguesa KECOs" class="absolute inset-0 w-full h-full object-cover" />
-                    
-                    <!-- Degradado súper sutil solo para darle profundidad -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/40 via-transparent to-transparent z-10 pointer-events-none"></div>
                 </div>
             </div>
         </div>
