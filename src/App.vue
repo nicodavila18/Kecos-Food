@@ -90,7 +90,7 @@
             <div class="mt-8 mb-8">
                 <h3 class="text-lg font-black text-orange-500 mb-4 tracking-widest uppercase drop-shadow-md">Agregados</h3>
                 
-                <div class="flex flex-col gap-3">
+                <div class="flex flex-col gap-4">
                     <!-- Opción Destacada: Medallón Extra -->
                     <div class="flex justify-between items-center p-4 bg-orange-500/10 border border-orange-500/30 rounded-xl relative overflow-hidden">
                         <!-- Línea decorativa naranja a la izquierda -->
@@ -103,10 +103,21 @@
                         <span class="text-lg font-black text-orange-400">+ $ 2.000</span>
                     </div>
 
-                    <!-- Otros Agregados Clásicos -->
-                    <div class="flex justify-between items-center p-4 bg-zinc-900/50 border border-white/5 rounded-xl">
-                        <span class="text-base font-bold text-zinc-300 uppercase tracking-wide">Cheddar / Bacon / Huevo</span>
-                        <span class="text-lg font-black text-orange-400">+ $ 2.000</span>
+                    <!-- Lista de Agregados Clásicos -->
+                    <div class="p-4 bg-zinc-900/50 border border-white/5 rounded-xl">
+                        <!-- Encabezado con el precio por cada uno -->
+                        <div class="flex justify-between items-end mb-4 border-b border-white/10 pb-2">
+                            <span class="text-sm font-bold text-zinc-400 uppercase tracking-wide">Clásicos</span>
+                            <span class="text-sm font-black text-orange-400">+ $ 2.000 c/u</span>
+                        </div>
+                        
+                        <!-- Contenedor flexible para las píldoras de ingredientes -->
+                        <div class="flex flex-wrap gap-2.5">
+                            <span v-for="agregado in agregadosHamburguesas" :key="agregado" 
+                                  class="px-3 py-1.5 bg-zinc-800/40 border border-zinc-700/50 text-zinc-300 text-[11px] font-bold uppercase tracking-wider rounded-lg shadow-sm">
+                                {{ agregado }}
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -418,6 +429,12 @@ const deLaCasa = ref([
       { id: 8, name: "x3 + papas", price: 20000 },
       { id: 9, name: "x3 + papas + gaseosa", price: 23000 },
       { id: 10, name: "Hambur pizza", price: 33000 },
+])
+
+const agregadosHamburguesas = ref([
+    "Huevo", "Criolla", "Aceituna", "Barbacoa", 
+    "Queso azul", "Picante", "Bacon", "Cheddar", 
+    "Lluvia de papas", "Doritos"
 ])
 
 // Nuevos Datos: Pizzas (Extraídos de WhatsApp Image 2026-07-21 at 18.57.47 (1)_2.jpeg)
