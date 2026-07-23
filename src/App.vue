@@ -373,7 +373,7 @@ import { ref } from 'vue'
 
 const categorias = ['Hamburguesas', 'Pizzas', 'Lomos', 'Panchos', 'Papas', 'Promos'] 
 // Cambiá esta variable si querés que la página arranque en otra pestaña
-const activeTab = ref('Pizzas')
+const activeTab = ref('Hamburguesas')
 
 const formatPrice = (price) => {
     return price.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0 })
