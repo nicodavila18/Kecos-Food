@@ -86,6 +86,30 @@
                     <span class="text-xl font-black text-orange-400">{{ formatPrice(item.price) }}</span>
                 </div>
             </div>
+
+            <div class="mt-8 mb-8">
+                <h3 class="text-lg font-black text-orange-500 mb-4 tracking-widest uppercase drop-shadow-md">Agregados</h3>
+                
+                <div class="flex flex-col gap-3">
+                    <!-- Opción Destacada: Medallón Extra -->
+                    <div class="flex justify-between items-center p-4 bg-orange-500/10 border border-orange-500/30 rounded-xl relative overflow-hidden">
+                        <!-- Línea decorativa naranja a la izquierda -->
+                        <div class="absolute top-0 left-0 w-1 h-full bg-orange-500"></div>
+                        
+                        <div class="flex flex-col pl-2">
+                            <span class="text-orange-400 text-[10px] font-black uppercase tracking-widest mb-1">Recomendado</span>
+                            <span class="text-base font-bold text-zinc-50 uppercase tracking-wide">Medallón Extra</span>
+                        </div>
+                        <span class="text-lg font-black text-orange-400">+ $ 2.000</span>
+                    </div>
+
+                    <!-- Otros Agregados Clásicos -->
+                    <div class="flex justify-between items-center p-4 bg-zinc-900/50 border border-white/5 rounded-xl">
+                        <span class="text-base font-bold text-zinc-300 uppercase tracking-wide">Cheddar / Bacon / Huevo</span>
+                        <span class="text-lg font-black text-orange-400">+ $ 2.000</span>
+                    </div>
+                </div>
+            </div>
             
             <!-- Imagen de Muestra -->
             <div class="w-full max-w-md px-4 mb-4 relative z-10">
