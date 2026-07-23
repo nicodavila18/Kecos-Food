@@ -439,6 +439,7 @@ const panDePapa = ref([
       { id: 4, name: "Con cheddar y Doritos", price: 10000 },
       { id: 5, name: "Hambur. Desmechada", price: 9000 },
       { id: 6, name: "Texas", price: 12000, badge: "Recomendada" },
+      { id: 7, name: "Burger de Pollo", price: 8000 },
 ])
 
 const deLaCasa = ref([
@@ -515,7 +516,8 @@ const papas = ref([
     { id: 2, name: "Salchipapas", price: 7000 },
     { id: 3, name: "Con cheddar y bacon", price: 13000 },
     { id: 4, name: "Con cheddar y Doritos", price: 12000 },
-    { id: 5, name: "Papas a caballo", price: 7000 }
+    { id: 5, name: "Papas a caballo", price: 7000 },
+    { id: 6, name: "Nuggets de Pollo", price: 6000 },
 ])
 
 // Nuevos Datos: Combos Big Burger
