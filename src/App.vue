@@ -296,9 +296,17 @@
             
             <div class="flex flex-col mb-6">
                 <div v-for="pancho in panchosClasicos" :key="pancho.id" class="relative flex justify-between items-center py-5 border-b border-zinc-800/60 active:bg-white/[0.02] transition-colors">
-                    <div class="text-left flex-1 pr-4">
+                    
+                    <!-- 1. El cartelito usando la variable "pancho" -->
+                    <div v-if="pancho.badge" class="absolute top-1 left-0 bg-orange-500 text-zinc-950 text-[10px] font-black px-2 py-0.5 rounded-sm uppercase tracking-wider">
+                        {{ pancho.badge }}
+                    </div>
+
+                    <!-- 2. Al contenedor del nombre le agregamos mt-2 -->
+                    <div class="text-left flex-1 pr-4 mt-2">
                         <span class="text-xl font-bold text-zinc-50 block uppercase tracking-wide">{{ pancho.name }}</span>
                     </div>
+                    
                     <span class="text-xl font-black text-orange-400">{{ formatPrice(pancho.price) }}</span>
                 </div>
             </div>
@@ -487,7 +495,7 @@ const pizzas = ref([
 const lomos = ref([
       { id: 1, name: "Lomos Completos", precio22: 15000, precio30: 19000, badge: "Más vendidos" },
       { id: 2, name: "Carne Desmechada", precio22: 15000, precio30: 19000, badge: "Recomendado" },
-      { id: 3, name: "Lomo Pizza", precioUnico: 38000 },
+      { id: 3, name: "Lomo Pizza", precioUnico: 38000, badge: "Premium" },
       { id: 4, name: "Kecolucos", precioUnico: 20000 },
 ])
 
@@ -495,16 +503,16 @@ const lomos = ref([
 const panchosClasicos = ref([
       { id: 1, name: "Común", price: 2500 },
       { id: 2, name: "Al poncho", price: 3000 },
-      { id: 3, name: "A la pizza", price: 4000 },
-      { id: 4, name: "Con cheddar y bacon", price: 5000 },
+      { id: 3, name: "A la pizza", price: 4000, badge: "Más vendido" },
+      { id: 4, name: "Con cheddar y bacon", price: 5000, badge: "Recomendado" },
       { id: 5, name: "Queso azul", price: 3500 },
 ])
 
 const panchosMasa = ref([
       { id: 1, name: "Común", price: 3000 },
       { id: 2, name: "Al poncho", price: 3500 },
-      { id: 3, name: "A la pizza", price: 4500 },
-      { id: 4, name: "Con cheddar y bacon", price: 6000 },
+      { id: 3, name: "A la pizza", price: 4500, badge: "Más vendido" },
+      { id: 4, name: "Con cheddar y bacon", price: 6000, badge: "Premium" },
       { id: 5, name: "Queso azul", price: 4000 },
 ])
 
