@@ -561,7 +561,7 @@ const especiales = ref([
 
 // Nuevos Datos: Bebidas
 const bebidas = ref([
-    { id: 1, name: "Gaseosa 500 ml", price: 1500 },
+    { id: 1, name: "Gaseosa 500 ml", price: 2000 },
     { id: 2, name: "Jugo Cepita 1.5 Lts", price: 4500 },
     { id: 3, name: "Jugo Aquarius 2.5 Lts", price: 4500 },
     { id: 4, name: "Jugo Levite 2.5 Lts", price: 4000 },
