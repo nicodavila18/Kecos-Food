@@ -315,6 +315,9 @@
             
             <div class="flex flex-col mb-8">
                 <div v-for="pancho in panchosMasa" :key="pancho.id" class="relative flex justify-between items-center py-5 border-b border-zinc-800/60 active:bg-white/[0.02] transition-colors">
+                    <div v-if="pancho.badge" class="absolute top-1 left-0 bg-orange-500 text-zinc-950 text-[10px] font-black px-2 py-0.5 rounded-sm uppercase tracking-wider">
+                        {{ pancho.badge }}
+                    </div>
                     <div class="text-left flex-1 pr-4">
                         <span class="text-xl font-bold text-zinc-50 block uppercase tracking-wide">{{ pancho.name }}</span>
                     </div>
@@ -358,6 +361,9 @@
             
             <div class="flex flex-col mb-6">
                 <div v-for="papa in papas" :key="papa.id" class="relative flex justify-between items-center py-5 border-b border-zinc-800/60 active:bg-white/[0.02] transition-colors">
+                    <div v-if="papa.badge" class="absolute top-1 left-0 bg-orange-500 text-zinc-950 text-[10px] font-black px-2 py-0.5 rounded-sm uppercase tracking-wider">
+                        {{ papa.badge }}
+                    </div>
                     <div class="text-left flex-1 pr-4">
                         <span class="text-xl font-bold text-zinc-50 block uppercase tracking-wide">{{ papa.name }}</span>
                     </div>
@@ -452,10 +458,10 @@ const formatPrice = (price) => {
 const panDePapa = ref([
       { id: 1, name: "Moe (clásica)", price: 8000 },
       { id: 2, name: "Larry (doble cheese)", price: 10000, badge: "Más vendida" },
-      { id: 3, name: "Curly (Oklahoma)", price: 11000 },
+      { id: 3, name: "Curly (Oklahoma)", price: 11000, badge: "Recomendada" },
       { id: 4, name: "Con cheddar y Doritos", price: 10000 },
       { id: 5, name: "Hambur. Desmechada", price: 9000 },
-      { id: 6, name: "Texas", price: 12000, badge: "Recomendada" },
+      { id: 6, name: "Texas", price: 12000, badge: "Premium" },
       { id: 7, name: "Burger de Pollo", price: 8000 },
 ])
 
@@ -531,11 +537,11 @@ const milanesas = ref([
 // Nuevos Datos: Papas
 const papas = ref([
     { id: 1, name: "Común", price: 5000 },
-    { id: 2, name: "Salchipapas", price: 7000 },
+    { id: 2, name: "Salchipapas", price: 7000, badge: "Más vendida" },
     { id: 3, name: "Con cheddar y bacon", price: 13000 },
-    { id: 4, name: "Con cheddar y Doritos", price: 12000 },
+    { id: 4, name: "Con cheddar y Doritos", price: 12000, badge: "Premium" },
     { id: 5, name: "Papas a caballo", price: 7000 },
-    { id: 6, name: "Nuggets de Pollo", price: 6000 },
+    { id: 6, name: "Nuggets de Pollo", price: 6000, badge: "Recomendado" },
 ])
 
 // Nuevos Datos: Combos Big Burger
@@ -553,7 +559,6 @@ const especiales = ref([
     { id: 4, name: "La Argenta", price: 8000, image: "/promo4.jpeg" },
 ])
 
-// Nuevos Datos: Bebidas
 // Nuevos Datos: Bebidas
 const bebidas = ref([
     { id: 1, name: "Gaseosa 500 ml", price: 1500 },
