@@ -8,20 +8,46 @@
         <img src="/KECOs2.png" alt="KECO's Logo" class="w-60 drop-shadow-2xl" />
     </header>
     
-    <!-- Banner Promocional Principal (Hero) -->
+    <!-- Banner Promocional Principal Animado (Hero) -->
     <div class="w-full max-w-md px-4 mb-6 relative z-10">
-        <div class="w-full h-48 rounded-2xl flex items-center justify-center overflow-hidden relative shadow-[0_10px_30px_rgba(249,115,22,0.1)] border border-white/10 group">
+        <div class="w-full h-48 rounded-2xl flex items-center justify-center overflow-hidden relative shadow-[0_10px_30px_rgba(249,115,22,0.1)] border border-white/10 bg-zinc-900 group">
             
-            <!-- Imagen de fondo -->
-            <img src="/banner-principal.png" alt="Especialidad KECOs" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            
-            <!-- Gradiente MUCHO más oscuro para garantizar la lectura -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent/10"></div>
-            
-            <!-- Texto superpuesto con sombra forzada -->
-            <div class="absolute bottom-4 left-5 flex flex-col z-10">
-                <span class="text-orange-500 font-black text-[10px] tracking-widest uppercase mb-1 drop-shadow-md">Especialidad de la casa</span>
-                <span class="text-zinc-50 font-black text-2xl tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,1)]">SMASH BURGERS</span>
+            <!-- Grupo de Transición de Vue (Fade) -->
+            <transition-group 
+                enter-active-class="transition-opacity duration-1000 ease-in-out"
+                leave-active-class="transition-opacity duration-1000 ease-in-out"
+                enter-from-class="opacity-0"
+                leave-to-class="opacity-0"
+            >
+                <div v-for="(slide, index) in bannerSlides" :key="slide.id" v-show="currentSlide === index" class="absolute inset-0 w-full h-full">
+                    
+                    <!-- Imagen de fondo con efecto de zoom lento y dinámico -->
+                    <img :src="slide.image" :alt="slide.title" 
+                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-[6000ms] ease-out origin-center"
+                         :class="currentSlide === index ? 'scale-110' : 'scale-100'" />
+                    
+                    <!-- Gradiente oscuro para garantizar la lectura -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent/10"></div>
+                    
+                    <!-- Textos dinámicos de cada slide -->
+                    <div class="absolute bottom-4 left-5 flex flex-col z-10">
+                        <span class="text-orange-500 font-black text-[10px] tracking-widest uppercase mb-1 drop-shadow-md">
+                            {{ slide.subtitle }}
+                        </span>
+                        <span class="text-zinc-50 font-black text-2xl tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,1)]">
+                            {{ slide.title }}
+                        </span>
+                    </div>
+
+                </div>
+            </transition-group>
+
+            <!-- Puntitos Indicadores (Paginación visual) -->
+            <div class="absolute bottom-3 right-4 flex gap-1.5 z-20">
+                <span v-for="(slide, index) in bannerSlides" :key="'dot-'+slide.id" 
+                      class="h-1.5 rounded-full transition-all duration-500"
+                      :class="currentSlide === index ? 'w-4 bg-orange-500' : 'w-1.5 bg-white/40'">
+                </span>
             </div>
             
         </div>
@@ -444,7 +470,31 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+
+// Datos del Banner Principal
+const bannerSlides = ref([
+    { id: 1, image: '/banner-principal.png', subtitle: 'Especialidad de la casa', title: 'SMASH BURGERS' },
+    { id: 2, image: '/banner-burger2.png', subtitle: 'Recomendada', title: 'DE LA CASA' },
+    { id: 3, image: '/pizza-banner.png', subtitle: 'Amasado Manual', title: 'PIZZAS' }
+])
+
+// Lógica del Carrusel Animado
+const currentSlide = ref(0)
+let slideInterval
+
+onMounted(() => {
+    // Cuando la página carga, iniciamos el reloj
+    slideInterval = setInterval(() => {
+        // Sumamos 1, y si llegamos al final, volvemos a 0 usando el operador módulo (%)
+        currentSlide.value = (currentSlide.value + 1) % bannerSlides.value.length
+    }, 4000) // Cambia cada 4 segundos (4000 milisegundos)
+})
+
+onUnmounted(() => {
+    // Limpiamos la memoria si cerramos la página
+    clearInterval(slideInterval)
+})
 
 const categorias = ['Hamburguesas', 'Pizzas', 'Lomos', 'Panchos', 'Papas', 'Bebidas'] 
 // Cambiá esta variable si querés que la página arranque en otra pestaña
