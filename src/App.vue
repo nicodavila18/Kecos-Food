@@ -188,21 +188,26 @@
             <div class="flex flex-col mb-6">
                 <div v-for="pizza in pizzas" :key="pizza.id" class="relative flex justify-between items-center py-5 border-b border-zinc-800/60 active:bg-white/[0.02] transition-colors">
                     
-                    <!-- Nombre de la pizza -->
-                    <div class="text-left flex-1 pr-4">
+                    <!-- Etiqueta / Badge (Solo aparece si la pizza tiene la propiedad 'badge') -->
+                    <div v-if="pizza.badge" class="absolute top-1 left-0 bg-orange-500 text-zinc-950 text-[10px] font-black px-2 py-0.5 rounded-sm uppercase tracking-wider">
+                        {{ pizza.badge }}
+                    </div>
+
+                    <!-- Nombre de la pizza (Le agregamos mt-2 para darle espacio al badge) -->
+                    <div class="text-left flex-1 pr-4 mt-2">
                         <span class="text-xl font-bold text-zinc-50 block uppercase tracking-wide">{{ pizza.name }}</span>
                     </div>
                     
                     <!-- Contenedor de los precios -->
                     <div class="flex items-center gap-2 sm:gap-4">
                         
-                        <!-- Columna X1 (Siempre visible con ancho fijo) -->
+                        <!-- Columna X1 -->
                         <div class="flex flex-col items-center min-w-[80px]">
                             <span class="text-[10px] text-zinc-500 font-bold tracking-widest uppercase mb-1">X1</span>
                             <span class="text-xl font-black text-orange-400">{{ formatPrice(pizza.precioX1) }}</span>
                         </div>
 
-                        <!-- Columna X2 (Mantiene el ancho fijo siempre, pero solo muestra texto si hay precio) -->
+                        <!-- Columna X2 -->
                         <div class="flex flex-col items-center min-w-[80px]">
                             <template v-if="pizza.precioX2">
                                 <span class="text-[10px] text-zinc-500 font-bold tracking-widest uppercase mb-1">X2</span>
@@ -459,7 +464,7 @@ const agregadosHamburguesas = ref([
 const pizzas = ref([
       { id: 1, name: "Común", precioX1: 10000, precioX2: 18000 },
       { id: 2, name: "Doble Queso", precioX1: 13000, precioX2: 24000 },
-      { id: 3, name: "Especial", precioX1: 15000, precioX2: 28000 },
+      { id: 3, name: "Especial", precioX1: 15000, precioX2: 28000, badge: "Más vendida" },
       { id: 4, name: "Primavera", precioX1: 15000, precioX2: 28000 },
       { id: 5, name: "Fugazza", precioX1: 13000},
       { id: 6, name: "Fugazzeta", precioX1: 15000},
@@ -469,8 +474,8 @@ const pizzas = ref([
       { id: 10, name: "Primavera", precioX1: 15000},
       { id: 11, name: "Con Doritos", precioX1: 16000},
       { id: 12, name: "Con Bacon", precioX1: 20000},
-      { id: 13, name: "Pizza Kecos", precioX1: 20000},
-      { id: 14, name: "La Envidiada", precioX1: 23000, precioX2: 40000 },
+      { id: 13, name: "Pizza Kecos", precioX1: 20000, badge: "Recomendada" },
+      { id: 14, name: "La Envidiada", precioX1: 23000, precioX2: 40000, badge: "Premium" },
 ])
 
 // Nuevos Datos: Lomos
