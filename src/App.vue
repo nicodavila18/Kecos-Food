@@ -240,8 +240,8 @@
             <h2 class="text-2xl font-black text-orange-500 mt-6 mb-6 tracking-widest uppercase drop-shadow-md">Lomos</h2>
             <div class="flex flex-col mb-6">
                 <div v-for="lomo in lomos" :key="lomo.id" class="relative flex justify-between items-center py-5 border-b border-zinc-800/60 active:bg-white/[0.02] transition-colors">
-                    <div v-if="item.badge" class="absolute top-1 left-0 bg-orange-500 text-zinc-950 text-[10px] font-black px-2 py-0.5 rounded-sm uppercase tracking-wider">
-                        {{ item.badge }}
+                    <div v-if="lomo.badge" class="absolute top-1 left-0 bg-orange-500 text-zinc-950 text-[10px] font-black px-2 py-0.5 rounded-sm uppercase tracking-wider">
+                        {{ lomo.badge }}
                     </div>
 
                     <div class="text-left flex-1 pr-4 mt-2">
