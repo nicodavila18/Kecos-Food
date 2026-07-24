@@ -240,7 +240,11 @@
             <h2 class="text-2xl font-black text-orange-500 mt-6 mb-6 tracking-widest uppercase drop-shadow-md">Lomos</h2>
             <div class="flex flex-col mb-6">
                 <div v-for="lomo in lomos" :key="lomo.id" class="relative flex justify-between items-center py-5 border-b border-zinc-800/60 active:bg-white/[0.02] transition-colors">
-                    <div class="text-left flex-1 pr-4">
+                    <div v-if="item.badge" class="absolute top-1 left-0 bg-orange-500 text-zinc-950 text-[10px] font-black px-2 py-0.5 rounded-sm uppercase tracking-wider">
+                        {{ item.badge }}
+                    </div>
+
+                    <div class="text-left flex-1 pr-4 mt-2">
                         <span class="text-xl font-bold text-zinc-50 block uppercase tracking-wide">{{ lomo.name }}</span>
                     </div>
                     
@@ -471,17 +475,18 @@ const pizzas = ref([
       { id: 7, name: "Calabresa", precioX1: 15000},
       { id: 8, name: "Con Palmitos", precioX1: 15000},
       { id: 9, name: "Con Champiñones", precioX1: 15000},
-      { id: 10, name: "Primavera", precioX1: 15000},
-      { id: 11, name: "Con Doritos", precioX1: 16000},
-      { id: 12, name: "Con Bacon", precioX1: 20000},
-      { id: 13, name: "Pizza Kecos", precioX1: 20000, badge: "Recomendada" },
-      { id: 14, name: "La Envidiada", precioX1: 23000, precioX2: 40000, badge: "Premium" },
+      { id: 10, name: "Con Roquefort", precioX1: 15000},
+      { id: 11, name: "Primavera", precioX1: 15000},
+      { id: 12, name: "Con Doritos", precioX1: 16000},
+      { id: 13, name: "Con Bacon", precioX1: 20000},
+      { id: 14, name: "Pizza Kecos", precioX1: 20000, badge: "Recomendada" },
+      { id: 15, name: "La Envidiada", precioX1: 23000, precioX2: 40000, badge: "Premium" },
 ])
 
 // Nuevos Datos: Lomos
 const lomos = ref([
-      { id: 1, name: "Lomos Completos", precio22: 15000, precio30: 19000 },
-      { id: 2, name: "Carne Desmechada", precio22: 15000, precio30: 19000 },
+      { id: 1, name: "Lomos Completos", precio22: 15000, precio30: 19000, badge: "Más vendidos" },
+      { id: 2, name: "Carne Desmechada", precio22: 15000, precio30: 19000, badge: "Recomendado" },
       { id: 3, name: "Lomo Pizza", precioUnico: 38000 },
       { id: 4, name: "Kecolucos", precioUnico: 20000 },
 ])
