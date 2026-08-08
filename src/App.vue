@@ -78,6 +78,34 @@
         <!--     SECCIÓN HAMBURGUESAS       -->
         <!-- ============================== -->
         <div v-show="activeTab === 'Hamburguesas'" class="animate-fade-in">
+
+            <!-- ========================================== -->
+            <!-- LANZAMIENTO EXCLUSIVO: LA CHANCHA          -->
+            <!-- ========================================== -->
+            <div class="mb-12 w-full mt-8 relative">
+                
+                <!-- Etiqueta superior: Estilo "pestaña" pegada al borde superior -->
+                <div class="absolute bottom-full right-6 -mb-[2px] bg-orange-500 text-zinc-950 text-xs font-black px-4 py-1.5 rounded-t-xl uppercase tracking-widest z-20">
+                    ¡Nuevo Lanzamiento!
+                </div>
+
+                <div class="relative w-full rounded-3xl overflow-hidden shadow-[0_0_20px_rgba(249,115,22,0.2)] border-2 border-orange-500/40 bg-zinc-900 mx-auto">
+                    
+                    <!-- Imagen del póster/folleto -->
+                    <img src="/la-chancha.jpg" alt="Hamburguesa La Chancha" class="w-full h-auto relative z-0 opacity-95" />
+                    
+                    <!-- Gradiente oscuro inferior con Nombre y Precio -->
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-zinc-950 via-zinc-950/90 to-transparent p-5 pt-20 flex justify-between items-end z-10">
+                        <h3 class="text-2xl font-black text-zinc-50 uppercase tracking-widest drop-shadow-lg">
+                            La Chancha
+                        </h3>
+                        <span class="text-xl font-black text-orange-400 bg-orange-950/90 px-3 py-1 rounded-xl border border-orange-500/50 backdrop-blur-md shadow-lg">
+                            $ 12.000
+                        </span>
+                    </div>
+                    
+                </div>
+            </div>
             
             <h2 class="text-2xl font-black text-orange-500 mt-6 mb-6 tracking-widest uppercase drop-shadow-md">Pan de Manteca</h2>
             <div class="flex flex-col mb-6">
