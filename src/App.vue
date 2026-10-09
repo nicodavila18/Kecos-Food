@@ -302,15 +302,10 @@
                         <span class="text-xl font-bold text-zinc-50 block uppercase tracking-wide">{{ lomo.name }}</span>
                     </div>
                     
-                    <div v-if="lomo.precio30" class="flex items-center gap-5">
-                        <div class="flex flex-col items-center">
-                            <span class="text-[10px] text-zinc-500 font-bold tracking-widest uppercase mb-1">22 CM</span>
-                            <span class="text-xl font-black text-orange-400">{{ formatPrice(lomo.precio22) }}</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <span class="text-[10px] text-zinc-500 font-bold tracking-widest uppercase mb-1">25 CM</span>
-                            <span class="text-xl font-black text-orange-400">{{ formatPrice(lomo.precio30) }}</span>
-                        </div>
+                    <!-- Mostrar Precio Único o Precio de 25cm -->
+                    <div v-if="lomo.precio25" class="flex flex-col items-center">
+                        <span class="text-[10px] text-zinc-500 font-bold tracking-widest uppercase mb-1">25 CM</span>
+                        <span class="text-xl font-black text-orange-400">{{ formatPrice(lomo.precio25) }}</span>
                     </div>
                     <div v-else class="flex items-center">
                         <span class="text-xl font-black text-orange-400">{{ formatPrice(lomo.precioUnico) }}</span>
@@ -577,8 +572,8 @@ const pizzas = ref([
 
 // Nuevos Datos: Lomos
 const lomos = ref([
-      { id: 1, name: "Lomos Completos", precio30: 19000, badge: "Más vendidos" },
-      { id: 2, name: "Carne Desmechada", precio30: 19000, badge: "Recomendado" },
+      { id: 1, name: "Lomos Completos", precio25: 19000, badge: "Más vendidos" },
+      { id: 2, name: "Carne Desmechada", precio25: 19000, badge: "Recomendado" },
       { id: 3, name: "Lomo Pizza", precioUnico: 38000, badge: "Premium" },
       { id: 4, name: "Kecolucos", precioUnico: 20000 },
 ])
