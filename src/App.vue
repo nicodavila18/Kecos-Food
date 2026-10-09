@@ -308,7 +308,7 @@
                             <span class="text-xl font-black text-orange-400">{{ formatPrice(lomo.precio22) }}</span>
                         </div>
                         <div class="flex flex-col items-center">
-                            <span class="text-[10px] text-zinc-500 font-bold tracking-widest uppercase mb-1">30 CM</span>
+                            <span class="text-[10px] text-zinc-500 font-bold tracking-widest uppercase mb-1">25 CM</span>
                             <span class="text-xl font-black text-orange-400">{{ formatPrice(lomo.precio30) }}</span>
                         </div>
                     </div>
@@ -546,7 +546,7 @@ const panDePapa = ref([
 const deLaCasa = ref([
       { id: 7, name: "x1", price: 6000 },
       { id: 8, name: "x3 + papas", price: 20000 },
-      { id: 9, name: "x3 + papas + gaseosa", price: 23000 },
+      { id: 9, name: "x3 + papas + gaseosa", price: 25000 },
       { id: 10, name: "Hambur pizza", price: 33000 },
 ])
 
@@ -577,8 +577,8 @@ const pizzas = ref([
 
 // Nuevos Datos: Lomos
 const lomos = ref([
-      { id: 1, name: "Lomos Completos", precio22: 15000, precio30: 19000, badge: "Más vendidos" },
-      { id: 2, name: "Carne Desmechada", precio22: 15000, precio30: 19000, badge: "Recomendado" },
+      { id: 1, name: "Lomos Completos", precio30: 19000, badge: "Más vendidos" },
+      { id: 2, name: "Carne Desmechada", precio30: 19000, badge: "Recomendado" },
       { id: 3, name: "Lomo Pizza", precioUnico: 38000, badge: "Premium" },
       { id: 4, name: "Kecolucos", precioUnico: 20000 },
 ])
@@ -616,10 +616,11 @@ const milanesas = ref([
 const papas = ref([
     { id: 1, name: "Común", price: 5000 },
     { id: 2, name: "Salchipapas", price: 7000, badge: "Más vendida" },
-    { id: 3, name: "Con cheddar y bacon", price: 13000 },
-    { id: 4, name: "Con cheddar y Doritos", price: 12000, badge: "Premium" },
-    { id: 5, name: "Papas a caballo", price: 7000 },
-    { id: 6, name: "Nuggets de Pollo", price: 6000, badge: "Recomendado" },
+    { id: 3, name: "Con cheddar", price: 10000 },
+    { id: 4, name: "Con cheddar y bacon", price: 13000 },
+    { id: 5, name: "Con cheddar y Doritos", price: 12000, badge: "Premium" },
+    { id: 6, name: "Papas a caballo", price: 7000 },
+    { id: 7, name: "Nuggets de Pollo", price: 6000, badge: "Recomendado" },
 ])
 
 // Nuevos Datos: Combos Big Burger
